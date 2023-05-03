@@ -1,13 +1,13 @@
 import Layout from "hocs/layouts/Layout"
 
 
-function Home() {
+function Dashboard() {
     return(
         <Layout>
-            home
+            DASHBOARD
         </Layout>
     )
     
 }
 
-export default Home
+export default Dashboard

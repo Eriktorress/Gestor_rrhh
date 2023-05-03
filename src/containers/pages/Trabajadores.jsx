@@ -1,13 +1,13 @@
 import Layout from "hocs/layouts/Layout"
 
 
-function Home() {
+function Trabajadores() {
     return(
         <Layout>
-            home
+            Trabajadores
         </Layout>
     )
     
 }
 
-export default Home
+export default Trabajadores
