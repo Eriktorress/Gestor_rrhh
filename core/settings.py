@@ -34,7 +34,7 @@ DJANGO_APPS = [
 ]
 
 PROJECT_APPS = [
-    
+    'apps.gestor'
 ]
 
 THIRD_PARTY_APPS = [

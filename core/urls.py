@@ -3,9 +3,14 @@ from django.contrib import admin
 from django.urls import path, re_path, include
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
+from apps.gestor.views import WorkerView
 from django.conf import settings
 
 urlpatterns = [
+    
+    
+    path('workers/', WorkerView.as_view(), name='workers_list'),
+    path('workers/<int:id>', WorkerView.as_view(), name='workers_process'),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
