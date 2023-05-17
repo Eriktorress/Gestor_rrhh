@@ -7,7 +7,9 @@ from apps.gestor.views import WorkerView
 from django.conf import settings
 
 urlpatterns = [
-    
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.jwt')),
+    path('auth/', include('djoser.social.urls')),
     
     path('workers/', WorkerView.as_view(), name='workers_list'),
     path('workers/<int:id>', WorkerView.as_view(), name='workers_process'),
