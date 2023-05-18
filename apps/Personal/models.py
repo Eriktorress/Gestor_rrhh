@@ -8,5 +8,3 @@ class Personal(models.Model):
     dv = models.CharField (verbose_name='Digito_verificador', max_length=1, null=False)
     email = models.EmailField ()
 
-    def __str__(self) :
-        return f"{self.rut} - {self.nombre} {self.apellido}"

@@ -16,15 +16,15 @@ class PersonalView(View):
     
     def get(self, request, id=0):
         if (id > 0):
-            workers = list(Personal.objects.filter(id=id).values())
+            personals = list(Personal.objects.filter(id=id).values())
             if len(personals) > 0:
-                personal = workers[0]
-                datos = {'message': "Success", 'Worker': personal}
+                personal = personals[0]
+                datos = {'message': "Success", 'Personal': personal}
             else:
-                datos = {'message': "Worker not found..."}
+                datos = {'message': "Personal not found..."}
             return JsonResponse(datos)
         else:
-            workers = list(Personal.objects.values())
+            personals = list(Personal.objects.values())
             if len(personals) > 0:
                 datos = {'message': "Success", 'personals': personals}
             else:
@@ -35,17 +35,20 @@ class PersonalView(View):
         # print(request.body)
         jd = json.loads(request.body)
         # print(jd)
-        Personal.objects.create(name=jd['name'], last_name=jd['last_name'], email=jd['email'])
+        Personal.objects.create(nombre=jd['Nombres_per'], apellido=jd['Apellidos_per'], rut=jd['Rut'], 
+                                dv=jd['Digito_verificador'], email=jd['email'])
         datos = {'message': "Success"}
         return JsonResponse(datos)
 
     def put(self, request, id):
         jd = json.loads(request.body)
-        workers = list(Personal.objects.filter(id=id).values())
+        personals = list(Personal.objects.filter(id=id).values())
         if len(personals) > 0:
             personal = Personal.objects.get(id=id)
-            personal.name = jd['name']
-            personal.last_name = jd['last_name']
+            personal.nombre = jd['Nombres_per']
+            personal.apellido = jd['Apellidos_per']
+            personal.rut = jd['Rut']
+            personal.dv = jd['Digito_verificador']
             personal.email = jd['email']
             personal.save()
             datos = {'message': "Success"}
