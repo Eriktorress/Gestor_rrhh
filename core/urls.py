@@ -4,7 +4,9 @@ from django.urls import path, re_path, include
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
 from apps.gestor.views import WorkerView
+from apps.Personal.views import PersonalView
 from django.conf import settings
+
 
 urlpatterns = [
     path('auth/', include('djoser.urls')),
@@ -13,6 +15,10 @@ urlpatterns = [
     
     path('workers/', WorkerView.as_view(), name='workers_list'),
     path('workers/<int:id>', WorkerView.as_view(), name='workers_process'),
+    
+    path('personals/', PersonalView.as_view(), name='personals_list'),
+    path('personals/<int:id>', PersonalView.as_view(), name='personal_process'),
+    
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
