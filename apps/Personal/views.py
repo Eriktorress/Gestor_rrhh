@@ -28,7 +28,7 @@ class PersonalView(View):
             if len(personals) > 0:
                 datos = {'message': "Success", 'personals': personals}
             else:
-                datos = {'message': "personals not found..."}
+                datos = {'message': "personals not found.."}
             return JsonResponse(datos)
 
     def post(self, request):
