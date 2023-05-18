@@ -3,7 +3,7 @@
 function Error404() {
     return(
         <div>
-        Error404
+        Error404 
         </div>
     )
     

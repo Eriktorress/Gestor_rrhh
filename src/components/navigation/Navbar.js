@@ -1,10 +1,10 @@
 import {connect} from 'react-redux'
-
+import '../../styles/Navbar.css';
 function Navbar(){
     return (
-        <nav>
-            Navbar
-        </nav>
+        <div className="navbar">
+             TRABAJADORES
+        </div>
     )
 
 }
@@ -13,6 +13,4 @@ const mapStateToProps = state=>({
 
 })
 
-export default connect (mapStateToProps, {
-
-}) (Navbar)
+export default  Navbar

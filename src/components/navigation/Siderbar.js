@@ -31,9 +31,14 @@ const Sidebar = ({children}) => {
             icon:<BsFillDiagram3Fill/>
         },
         {
-            path:"/productList",
-            name:"Product List",
-            icon:<FaThList/>
+            path:"/Info_trabajador",
+            name:"Info_Trabajador",
+            icon:<FaUserAlt/>
+        },
+        {
+            path:"/NewUser",
+            name:"NewUser",
+            icon:<BsFillDiagram3Fill/>
         }
     ]
     return (

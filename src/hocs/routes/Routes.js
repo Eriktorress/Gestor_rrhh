@@ -4,6 +4,8 @@ import Home from "containers/pages/Home";
 import Dashboard from "containers/pages/Dashboard";
 import Sidebar from "components/navigation/Siderbar";
 import Trabajadores from "containers/pages/Trabajadores";
+import Info_trabajador from "containers/pages/Info_trabajador";
+import NewUser from "containers/pages/NewUser";
 
 
 
@@ -19,7 +21,8 @@ function AnimatedRoutes(){
             <Route path="/" element={<Dashboard />} />
             <Route path="/home" element={<Home />} />
             <Route path="/trabajadores" element={<Trabajadores />} />
-
+            <Route path="/Info_trabajador" element={<Info_trabajador/>}/>
+            <Route path="/NewUser" element={<NewUser />}/>
           </Routes>
 
       </Sidebar>

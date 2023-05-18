@@ -4,7 +4,9 @@ import Layout from "hocs/layouts/Layout"
 function Home() {
     return(
         <Layout>
-            home
+            <div className="navbar">
+              HOME
+            </div>
         </Layout>
     )
     

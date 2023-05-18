@@ -4,7 +4,10 @@ import Layout from "hocs/layouts/Layout"
 function Dashboard() {
     return(
         <Layout>
-            DASHBOARD
+            <div className="navbar">
+              DASHBOARD
+            </div>
+            
         </Layout>
     )
     

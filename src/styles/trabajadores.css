@@ -1,0 +1,40 @@
+.navbar{
+    padding-left: 60px;
+    height: 50px;
+    display:flex;
+    align-items: center;
+    font-size: 14px;
+    background-color: #B0ABCB;
+    margin-top: -20px;
+    margin-left: -19px;
+    margin-right: -20px;
+    
+}
+
+body{
+  background-color: rgba(255, 255, 255, 0.377);
+}
+
+
+table{
+  -webkit-box-shadow:2px 4px 10px 1px rgba(0,0,0,0.47);
+    box-shadow: 2px 4px 10px 1px rgba(109, 107, 107, 0.47);
+    
+    margin-top: 80px;
+    padding: 20px;
+    padding-top: 20px;
+    width:100%;
+    border-radius: 10px;
+ }
+
+th, td {
+    padding: 20px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-right: 40px;
+    background-color: rgb(255, 255, 255);
+  }
