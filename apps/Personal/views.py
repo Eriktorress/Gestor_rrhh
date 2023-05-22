@@ -35,13 +35,9 @@ class PersonalView(View):
         # print(request.body)
         jd = json.loads(request.body)
         # print(jd)
-<<<<<<< Updated upstream
+
         Personal.objects.create(nombre=jd['Nombres_per'], apellido=jd['Apellidos_per'], rut=jd['Rut'], 
                                 dv=jd['Digito_verificador'], email=jd['email'])
-=======
-        Personal.objects.create(nombre=jd['nombres_per'], apellido=jd['apellidos_per'], rut=jd['rut'], 
-                                dv=jd['digito_verificador'], email=jd['email'])
->>>>>>> Stashed changes
         datos = {'message': "Success"}
         return JsonResponse(datos)
 
