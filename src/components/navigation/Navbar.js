@@ -9,7 +9,7 @@ function Navbar(){
         <div className='navbar'>
            <div className='topbarWrapper'>
                 <div className='topleft'>
-                    <span className='logo'>GESTION RR.HH</span>  
+                    <span className='logo'>GESTION RR.HH  </span>  
                 </div>
 
                 <div className='topright'>
