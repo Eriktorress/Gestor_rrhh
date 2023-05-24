@@ -1,10 +1,13 @@
+import Sidebar from "components/navigation/Siderbar"
 import Layout from "hocs/layouts/Layout"
 
 
 function Dashboard() {
     return(
         <Layout>
-            DASHBOARD
+            <Sidebar>
+                Dashboard
+            </Sidebar>
         </Layout>
     )
     
