@@ -1,12 +1,14 @@
 import Layout from "hocs/layouts/Layout"
 import Table from 'react-bootstrap/Table';
-/*import index from 'src/styles/'*/
+import Sidebar from "components/navigation/Siderbar"
 
 
 function Trabajadores() {
     return (
         <Layout>
-            <Table striped>
+            <Sidebar>
+                <h1>Trabajadores</h1>
+            <Table >
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -44,6 +46,8 @@ function Trabajadores() {
                     </tr>
                 </tbody>
             </Table>
+            </Sidebar>
+            
         </Layout>
 
     )
