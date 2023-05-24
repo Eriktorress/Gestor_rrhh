@@ -223,19 +223,24 @@ DJOSER = {
 AUTH_USER_MODEL = 'user.UserAccount'
 
 
-CORS_ORIGIN_WHITELIST = env.list('CORS_ORIGIN_WHITELIST_DEV')
-CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS_DEV')
-
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3001',
+    'http://localhost:3000',
+]
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:3001',
+    'http://localhost:3000',
+]
 EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 
-
 if not DEBUG:
-    ALLOWED_HOSTS= env.list('ALLOWED_HOSTS_DEPLOY')
+    ALLOWED_HOSTS=env.list('ALLOWED_HOSTS_DEPLOY')
     CORS_ORIGIN_WHITELIST = env.list('CORS_ORIGIN_WHITELIST_DEPLOY')
     CSRF_TRUSTED_ORIGINS = env.list('CSRF_TRUSTED_ORIGINS_DEPLOY')
 
-    
+
     DATABASES = {
-    'default': env.db("DATABASES_URL"),
+        "default": env.db("DATABASE_URL"),
     }
-    DATABASES ["default"] ["ATOMIC_REQUESTS"] = True
+    DATABASES["default"]["ATOMIC_REQUESTS"] = True
+
