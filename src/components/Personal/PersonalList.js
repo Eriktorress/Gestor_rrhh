@@ -1,34 +1,34 @@
 import React, { useEffect, useState } from "react";
 
 // Components:
-import CompanyItem from "./CompanyItem";
+import PersonalItem from "./PersonalItem";
 
-import * as CompanyServer from "./CompanyServer";
+import * as PersonalServer from "./PersonalServer";
 
-const CompanyList = () => {
-  const [companies, setCompanies] = useState([]);
+const PersonalList = () => {
+  const [personal, setPersonal] = useState([]);
 
-  const listCompanies = async () => {
+  const listPersonal = async () => {
     try {
-      const res = await CompanyServer.listCompanies();
+      const res = await PersonalServer.listPersonal();
       const data = await res.json();
-      setCompanies(data.companies);
+      setPersonal(data.personal);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    listCompanies();
+    listPersonal();
   }, []);
 
   return (
     <div className="row">
-      {companies.map((company) => (
-        <CompanyItem key={company.id} company={company} listCompanies={listCompanies} />
+      {personal.map((personal) => (
+        <PersonalItem key={personal.id} personal={personal} listPersonal={listPersonal} />
       ))}
     </div>
   );
 };
 
-export default CompanyList;
+export default PersonalList;
