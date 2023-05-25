@@ -22,16 +22,16 @@ export const registerPersonal = async (newPersonal) => {
     });
 };
 
-export const updatePersonal = async (personalId, updatedPersonal) => {
+export const updatePersonal = async (personalId, updatePersonal) => {
     return await fetch(`${API_URL}${personalId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            "name": String(updated.name).trim(),
-            "foundation": parseInt(updatedPersonal.foundation),
-            "website": String(updatedPersonal.website).trim(),
+            "name": String(updatePersonal.name).trim(),
+            "foundation": parseInt(updatePersonal.foundation),
+            "website": String(updatePersonal.website).trim(),
         })
     });
 };
