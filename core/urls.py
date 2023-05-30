@@ -15,8 +15,8 @@ urlpatterns = [
     path('workers/', WorkerView.as_view(), name='workers_list'),
     path('workers/<int:id>', WorkerView.as_view(), name='workers_process'),
     
-    path('personals/', PersonalView.as_view(), name='personals_list'),
-    path('personals/<int:pk>', PersonalView.as_view(), name='personal_process'),
+    path('personals/', PersonalView.as_view()),
+    path('personals/<int:pk>', PersonalView.as_view()),
     
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

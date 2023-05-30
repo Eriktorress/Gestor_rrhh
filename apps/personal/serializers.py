@@ -5,7 +5,7 @@ from .models import Personal
 class PersonalSerializer(serializers.ModelSerializer):
     class Meta:
         model = Personal
-        fields = ('id',
+        fields = ('personalId',
                   'nombre',
                   'apellido',
                   'rut',
