@@ -2,12 +2,13 @@ import { BrowserRouter as Router, Route, Routes, useLocation } from "react-route
 import Error404 from "containers/errors/Error404";
 import Dashboard from "containers/pages/Dashboard";
 
-import Trabajadores from "containers/pages/Trabajadores";
-import Sidebar from "components/navigation/Siderbar";
 import Home from "containers/pages/Home";
 import Sign from "containers/pages/Sign";
 import Signup from "containers/pages/Signup";
 
+import AddPersonalForm from "containers/pages/Personal/AddPersonalForm";
+import PersonsList from "containers/pages/Personal/PersonsList";
+import Personals from "containers/pages/Personal/Personals";
 
 function AnimatedRoutes(){
 
@@ -17,13 +18,19 @@ function AnimatedRoutes(){
 
 
           <Routes>
+
             <Route path="*" element={<Error404 />} />
             <Route path="/" element={<Sign />} />
             
             <Route path="/dashboard" element={<Dashboard />} />
             <Route exact path='/signup' element={<Signup />} />
             <Route path="/home" element={<Home/>} />
-            <Route path="/trabajadores" element={<Trabajadores />} />
+
+  
+            <Route exact path="/Personals" element={<Personals/>} />
+            <Route exact path="/Form_persons" element={<AddPersonalForm/>} />
+            <Route path="/listado_persons" element={<PersonsList/>} />
+
 
           </Routes>
 

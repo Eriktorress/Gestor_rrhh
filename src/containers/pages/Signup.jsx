@@ -8,14 +8,14 @@ const Signup = ({ signup, isAuthenticated }) => {
     const navigate = useNavigate();
     const [accountCreated, setAccountCreated] = useState(false);
     const [formData, setFormData] = useState({
-        email: '',
         first_name: '',
         last_name: '',
+        email: '',
         password: '',
         re_password: ''
     });
 
-    const { email, first_name, last_name,  password, re_password } = formData;
+    const { first_name, last_name, email,  password, re_password } = formData;
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value });
 
@@ -23,7 +23,7 @@ const Signup = ({ signup, isAuthenticated }) => {
         e.preventDefault();
 
         if (password === re_password) {
-            signup( email, first_name, last_name, password, re_password);
+            signup( first_name, last_name, email,  password, re_password);
             setAccountCreated(true);
         }
     };
@@ -49,8 +49,8 @@ const Signup = ({ signup, isAuthenticated }) => {
     return (
         <>
         <div className='container mt-5'>
-            <h1>Sign Up</h1>
-            <p>Create your Account</p>
+            <h1>Registrarse</h1>
+            <p>Crea tu cuenta</p>
             <form onSubmit={e => onSubmit(e)}>
                 <div className='form-group'>
                     <input
@@ -109,14 +109,14 @@ const Signup = ({ signup, isAuthenticated }) => {
                         required
                     />
                 </div>
-                <button className='btn btn-primary' type='submit'>Register</button>
+                <button className='btn btn-primary' type='submit'>Registrar</button>
             </form>
-            <button className='btn btn-danger mt-3' onClick={continueWithGoogle}>
-                Continue With Google
+            <button className='btn btn-danger' onClick={continueWithGoogle}>
+                Continua con Google
             </button>
             <br />
             <p className='mt-3'>
-                Already have an account? <Link to='/'>Sign In</Link>
+                ¿Ya posees una cuenta? <Link to='/'>Incia sesión</Link>
             </p>
         </div>
         </>

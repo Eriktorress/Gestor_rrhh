@@ -26,13 +26,13 @@ const Sidebar = ({children}) => {
             icon:<FaUserAlt/>
         },
         {
-            path:"/trabajadores",
+            path:"/listado_persons",
             name:"Trabajadores",
             icon:<BsFillDiagram3Fill/>
         },
         {
-            path:"/productList",
-            name:"Product List",
+            path:"/Personals",
+            name:"Personals",
             icon:<FaThList/>
         }
     ]

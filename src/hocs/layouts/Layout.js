@@ -1,4 +1,5 @@
 import Navbar from 'components/navigation/Navbar';
+import Sidebar from 'components/navigation/Siderbar';
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { check_authenticated, load_user } from 'redux/actions/auth/auth';
@@ -9,11 +10,16 @@ const Layout = ({ check_authenticated, load_user, children }) => {
         load_user();
     }, []);
 
-    return (
-        <div>
-            <Navbar />
-            {children}
-        </div>
+    return ( 
+         <div> 
+           <Sidebar>
+            <Navbar>
+
+            </Navbar>
+                {children}
+            </Sidebar>
+            </div>      
+
     );
 };
 

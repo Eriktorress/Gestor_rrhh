@@ -113,6 +113,17 @@ DATABASES = {
     }
 }
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'erik.torres.reyes@gmail.com'
+EMAIL_HOST_PASSWORD = 'deathwingy1'
+EMAIL_USE_TLS = True
+
+
+
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -222,6 +233,10 @@ DJOSER = {
 
 AUTH_USER_MODEL = 'user.UserAccount'
 
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '713765309010-nmrkj4ufpjfifaurv6bl581hrf21vhdq.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ['https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile', 'openid']
+SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = ['first_name', 'last_name']
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3001',
@@ -231,7 +246,7 @@ CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3001',
     'http://localhost:3000',
 ]
-EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 
 if not DEBUG:
     ALLOWED_HOSTS=env.list('ALLOWED_HOSTS_DEPLOY')

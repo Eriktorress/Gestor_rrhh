@@ -1,66 +1,51 @@
-from django.shortcuts import render
-from django.http.response import JsonResponse
+from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+from .serializers import PersonalSerializer
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from django.views import View
 from .models import Personal
 import json
-# Create your views here.
 
-
-class PersonalView(View):
-
-    @method_decorator(csrf_exempt)
-    def dispatch(self, request, *args, **kwargs):
-        return super().dispatch(request, *args, **kwargs)
+class PersonalView(APIView):
     
-    def get(self, request, id=0):
-        if (id > 0):
-            personals = list(Personal.objects.filter(id=id).values())
-            if len(personals) > 0:
-                personal = personals[0]
-                datos = {'message': "Success", 'Personal': personal}
-            else:
-                datos = {'message': "Personal not found..."}
-            return JsonResponse(datos)
+    def get_personal(self, pk):
+        try:
+            personal = Personal.objects.get(personalId=pk)
+            return personal
+        except:
+            return JsonResponse("Personal no existe", safe=False)
+
+    def get(self, request, pk=None):
+        if pk:
+            data = self.get_personal(pk)
+            serializer = PersonalSerializer (data)
         else:
-            personals = list(Personal.objects.values())
-            if len(personals) > 0:
-                datos = {'message': "Success", 'personals': personals}
-            else:
-                datos = {'message': "personals not found.."}
-            return JsonResponse(datos)
+            data = Personal.objects.all()
+            serializer = PersonalSerializer(data, many=True)
+        return Response(serializer.data)
 
     def post(self, request):
-        # print(request.body)
-        jd = json.loads(request.body)
-        # print(jd)
-        Personal.objects.create(nombre=jd['nombres_per'], apellido=jd['apellidos_per'], rut=jd['rut'], 
-                                dv=jd['digito_verificador'], email=jd['email'])
-        datos = {'message': "Success"}
-        return JsonResponse(datos)
+        data = request.data
+        serializer = PersonalSerializer(data=data)
 
-    def put(self, request, id):
-        jd = json.loads(request.body)
-        personals = list(Personal.objects.filter(id=id).values())
-        if len(personals) > 0:
-            personal = Personal.objects.get(id=id)
-            personal.nombre = jd['Nombres_per']
-            personal.apellido = jd['Apellidos_per']
-            personal.rut = jd['Rut']
-            personal.dv = jd['Digito_verificador']
-            personal.email = jd['email']
-            personal.save()
-            datos = {'message': "Success"}
-        else:
-            datos = {'message': "Personal not found..."}
-        return JsonResponse(datos)
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse("Se ha creado el personal satisfactoriamente", safe=False)
+        return JsonResponse("Ha fallado la creación de personal", safe=False)
 
-    def delete(self, request, id):
-        personals = list(Personal.objects.filter(id=id).values())
-        if len(personals) > 0:
-            Personal.objects.filter(id=id).delete()
-            datos = {'message': "Success"}
-        else:
-            datos = {'message': "Personal not found..."}
-        return JsonResponse(datos)
+    def put(self, request, pk=None):
+        personal_to_update = Personal.objects.get(personalId=pk)
+        serializer = PersonalSerializer(instance=personal_to_update, data=request.data, partial=True)
+
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse("Se ha Modificado el personal satisfactoriamente", safe=False)
+        return JsonResponse("Ha fallado la Modificación de personal")
+
+    def delete(self, request, pk=None):
+        personal_to_delete = Personal.objects.get(personalId=pk)
+        personal_to_delete.delete()
+        return JsonResponse("personal Deleted Successfully", safe=False)
