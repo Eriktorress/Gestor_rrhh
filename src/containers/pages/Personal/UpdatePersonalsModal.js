@@ -14,7 +14,7 @@ const UpdatePersonalsModal = (props) => {
             props.setUpdated(true);
         },
         (error)=>{
-            alert("Failed to Update Student");
+            alert("Ha fallado la modificacíon de Personal");
         })
     };
 

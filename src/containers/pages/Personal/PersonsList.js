@@ -46,7 +46,7 @@ const PersonsList = () => {
     };
 
     const handleDelete = (e, personalId) => {
-        if(window.confirm('Are you sure ?')){
+        if(window.confirm('¿Estas seguro que lo deseas eliminar?')){
             e.preventDefault();
             deletePersons(personalId)
             .then((result)=>{
@@ -54,7 +54,7 @@ const PersonsList = () => {
                 setIsUpdated(true);
             },
             (error)=>{
-                alert("Failed to Delete Student");
+                alert("Ha Fallado la eliminación del registro");
             })
         }
     };
@@ -76,6 +76,7 @@ const PersonsList = () => {
             <Table striped bordered hover className="react-bootstrap-table" id="dataTable">
                 <thead>
                 <tr>
+                  <th>ID</th>
                   <th>Nombre</th>
                   <th>Apellido</th>
                   <th>Rut</th>
@@ -86,7 +87,6 @@ const PersonsList = () => {
                 </thead>
                 <tbody>
                   { personals.map((per) =>
-
                   <tr key={per.id}>
                   <td>{per.personalId}</td>
                   <td>{per.nombre}</td>

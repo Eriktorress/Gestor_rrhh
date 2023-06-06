@@ -53,7 +53,6 @@ THIRD_PARTY_APPS = [
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 
-
 #CKEditor
 CKEDITOR_CONFIGS = {
     'default': {
@@ -117,7 +116,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'erik.torres.reyes@gmail.com'
-EMAIL_HOST_PASSWORD = 'deathwingy1'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 
 
@@ -241,10 +240,12 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_EXTRA_DATA = ['first_name', 'last_name']
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3001',
     'http://localhost:3000',
+    'http://127.0.0.1:8000',
 ]
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost:3001',
     'http://localhost:3000',
+    'http://127.0.0.1:8000',
 ]
 #EMAIL_BACKEND='django.core.mail.backends.console.EmailBackend'
 

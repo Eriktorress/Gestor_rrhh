@@ -3,6 +3,11 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from .serializers import PersonalSerializer
+
+from .permissions import IsPostAuthorOrReadOnly, AuthorPermission
+from rest_framework import permissions
+from rest_framework.permissions import IsAuthenticated
+
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.views import View
@@ -10,6 +15,7 @@ from .models import Personal
 import json
 
 class PersonalView(APIView):
+    permission_classes = [IsAuthenticated]
     
     def get_personal(self, pk):
         try:
@@ -21,7 +27,7 @@ class PersonalView(APIView):
     def get(self, request, pk=None):
         if pk:
             data = self.get_personal(pk)
-            serializer = PersonalSerializer (data)
+            serializer = PersonalSerializer(data)
         else:
             data = Personal.objects.all()
             serializer = PersonalSerializer(data, many=True)
@@ -42,10 +48,10 @@ class PersonalView(APIView):
 
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse("Se ha Modificado el personal satisfactoriamente", safe=False)
-        return JsonResponse("Ha fallado la Modificación de personal")
+            return JsonResponse("Se ha modificado el personal satisfactoriamente", safe=False)
+        return JsonResponse("Ha fallado la modificación de personal", safe=False)
 
     def delete(self, request, pk=None):
         personal_to_delete = Personal.objects.get(personalId=pk)
         personal_to_delete.delete()
-        return JsonResponse("personal Deleted Successfully", safe=False)
+        return JsonResponse("Personal eliminado exitosamente", safe=False)
