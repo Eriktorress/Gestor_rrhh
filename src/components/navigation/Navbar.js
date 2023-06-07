@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from 'redux/actions/auth/auth';
+import '../../styles/navbar.css';
 
 const Navbar = ({ logout, isAuthenticated }) => {
     const navigate = useNavigate();
@@ -32,7 +33,8 @@ const Navbar = ({ logout, isAuthenticated }) => {
     return (
         <Fragment>
             <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-                <Link className='navbar-brand' to='/'>Gestor de RRHH</Link>
+                <Link className='navbar-brand' to='/'><h1>Gestor de RRHH</h1></Link>
+
                 <button 
                     className='navbar-toggler' 
                     type='button' 
@@ -44,6 +46,7 @@ const Navbar = ({ logout, isAuthenticated }) => {
                 >
                     <span className='navbar-toggler-icon'></span>
                 </button>
+                
                 <div className='collapse navbar-collapse' id='navbarNav'>
                     <ul className='navbar-nav'>
                         <li className='nav-item active'>
