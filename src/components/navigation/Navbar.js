@@ -33,7 +33,7 @@ const Navbar = ({ logout, isAuthenticated }) => {
     return (
         <Fragment>
             <nav className='navbar navbar-expand-lg navbar-light bg-light'>
-                <Link className='navbar-brand' to='/'><h1>Gestor de RRHH</h1></Link>
+                <Link className='navbar-brand' to='/dashboard'><h1>Gestor de RRHH</h1></Link>
 
                 <button 
                     className='navbar-toggler' 
