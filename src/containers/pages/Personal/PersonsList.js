@@ -64,12 +64,12 @@ const PersonsList = () => {
     return(
       <Layout>
           <ButtonToolbar>
-              <Button variant="primary" onClick={handleAdd}>
-                Agregar Trabajador 
-                </Button>
+              <Button variant="primary" onClick={handleAdd}>Agregar Trabajador </Button>
+              
               <AddPersonalForm show={addModalShow} setUpdated={setIsUpdated}
                 onHide={AddModelClose}></AddPersonalForm>
          </ButtonToolbar>
+         
         <div className="container-fluid side-container">
         <div className="row side-row" >
         <p id="PersonsList"></p>
@@ -97,22 +97,24 @@ const PersonsList = () => {
                   <td>
 
                   <Button 
-                  className="mr-2" 
-                  variant="danger"
-                  onClick={event => handleDelete(event,per.personalId)}>
-                  <RiDeleteBin5Line />
+                    className="mr-2" 
+                    variant="danger"
+                    onClick={event => handleDelete(event,per.personalId)}>
+                    <RiDeleteBin5Line />
+
                   </Button>
-                  <span>&nbsp;&nbsp;&nbsp;</span>
+                    <span>&nbsp;&nbsp;&nbsp;</span>
                   <Button 
-                  className="mr-2"
-                  onClick={event => handleUpdate(event,per)}>
-                  <FaEdit />
+                    className="mr-2"
+                    onClick={event => handleUpdate(event,per)}>
+                    <FaEdit />
                   </Button>
+
                   <UpdatePersonalsModal 
-                  show={editModalShow} 
-                  personal={edit} 
-                  setUpdated={setIsUpdated}
-                  onHide={EditModelClose}>
+                    show={editModalShow} 
+                    personal={edit} 
+                    setUpdated={setIsUpdated}
+                    onHide={EditModelClose}>
                   </UpdatePersonalsModal>
 
                 </td>

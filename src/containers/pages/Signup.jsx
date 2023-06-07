@@ -49,9 +49,12 @@ const Signup = ({ signup, isAuthenticated }) => {
     return (
         <>
         <div className='container mt-5'>
-            <h1>Registrarse</h1>
-            <p>Crea tu cuenta</p>
+            
+            
             <form onSubmit={e => onSubmit(e)}>
+                <div><h1>Registrarse</h1></div>
+                
+                <h2>Crea tu cuenta</h2>
                 <div className='form-group'>
                     <input
                         className='form-control'
@@ -110,13 +113,12 @@ const Signup = ({ signup, isAuthenticated }) => {
                     />
                 </div>
                 <button className='btn btn-primary' type='submit'>Registrar</button>
-            </form>
-            <button className='btn btn-danger' onClick={continueWithGoogle}>
-                Continua con Google
+                <button className='btn btn-danger' onClick={continueWithGoogle}>Continuar con Google
             </button>
+            </form>
             <br />
             <p className='mt-3'>
-                ¿Ya posees una cuenta? <Link to='/'>Incia sesión</Link>
+                ¿Ya posees una cuenta? <Link to='/'>Inicia sesión</Link>
             </p>
         </div>
         </>
