@@ -1,7 +1,7 @@
 .navbar-brand{
     padding-left: 30px;
     padding-right: 30px;
-    height: 50px;
+    height: 70px;
     display:flex;
     align-items: center;
     font-size: 14px;
@@ -13,7 +13,7 @@
 .collapse,.navbar-collapse{
     padding-left: 90px;
     padding-right: 30px;
-    height: 50px;
+    height: 70px;
     display:flex;
     align-items: center;
     font-size: 14px;

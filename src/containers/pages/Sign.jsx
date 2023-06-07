@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { check_authenticated, load_user, login, refresh } from "redux/actions/auth/auth";
 import { Link, Navigate } from "react-router-dom";
 
+import './../../styles/sign.css';
+
 function Sign({
     login,
     isAuthenticated,
@@ -56,8 +58,8 @@ function Sign({
                 />
             </div>
             <div class="g-start-2">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
+                <label for="inputEmail3" class="col-sm-2 col-form-label"><h2>Email</h2></label>
+                <div class="">
                     <input 
                     type="email" 
                     class="form-control" 
@@ -71,8 +73,8 @@ function Sign({
                 </div>
             </div>
             <div class="row mb-3"/>
-                <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-                <div class="col-sm-10">
+                <label for="inputPassword3" class="col-sm-2 col-form-label"><h2>Contraseña</h2></label>
+                <div class="">
                     <input 
                     id="inputPassword3"
                     className='form-control'
@@ -85,9 +87,9 @@ function Sign({
                     required
                     />
             </div>
-            <button type="submit" class="btn btn-primary">Sign in</button>
+            <button type="submit" class="btn btn-primary"> Iniciar Sesión </button>
             <p className='mt-3'>
-                Don't have an account? <Link to='/signup'>Sign Up</Link>
+                Eres nuevo ? <Link to='/signup'>Crear una cuenta</Link>
             </p>
             </form>
         </>
